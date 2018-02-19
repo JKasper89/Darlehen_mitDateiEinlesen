@@ -10,6 +10,7 @@ from decimal import *
 import locale
 import time
 import math
+import string
 locale.setlocale(locale.LC_ALL, 'german')
 
 def greeting(name,date):
@@ -100,9 +101,10 @@ def determineAnnuity(loanAmount,rateOfInterest,runTime):
 
     print(''.center(80, '*'))
 
-def readFile(path):
-
-
+def readFile(*path):
+    dataset = open('C:/Users/kjgam/PycharmProjects/Darlehen_mitDateiEinlesen/test','r')
+    for line in dataset:
+        print(line)
 while True:
 
     "inputs & check"
@@ -167,7 +169,16 @@ while True:
     print(''.center(80, '*'))
     print("Die Berechnung ist fertig!")
     print(''.center(80, '*'))"""
+    dataset = open('C:/Users/kjgam/PycharmProjects/Darlehen_mitDateiEinlesen/test','r')
+    for line in dataset:
+        line2 = line.replace('\n','')
+        line3 = line2.split(',')
 
+        print(line3[1])
+
+
+        test= checkInput(line3[1],line3[3],line3[2])
+        determineAnnuity(test[0],test[1],test[2])
 
 
 
@@ -192,6 +203,8 @@ print("Das Programm beendet sich!")
 
 """start"""
 greeting('Jan Kasper',time.strftime("%d.%m.%y"))
+readFile()
+
 
 
 
